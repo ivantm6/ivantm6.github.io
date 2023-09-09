@@ -41,6 +41,7 @@ function reparteTarjetas(){
 
     tarjetasBarajadas.forEach(function(elemento, indice){
         var tarjeta = document.createElement("div");
+        console.log(totalTarjetas[indice].src);
 
         if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/foto1.jpg"){
             tarjeta.innerHTML =
