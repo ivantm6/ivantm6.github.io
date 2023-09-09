@@ -26,6 +26,8 @@ grupoTarjetas[7].src = './images/foto6.jpg';
 
 var totalTarjetas = grupoTarjetas.concat(grupoTarjetas);
 
+console.log(totalTarjetas[1].src);
+
 function barajaTarjetas(){
     var resultado;
     resultado = totalTarjetas.sort(function(){
@@ -41,7 +43,6 @@ function reparteTarjetas(){
 
     tarjetasBarajadas.forEach(function(elemento, indice){
         var tarjeta = document.createElement("div");
-        console.log(totalTarjetas[indice].src);
 
         if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/foto1.jpg"){
             tarjeta.innerHTML =
