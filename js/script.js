@@ -26,7 +26,22 @@ grupoTarjetas[7].src = './images/foto6.jpg';
 
 var totalTarjetas = grupoTarjetas.concat(grupoTarjetas);
 
-console.log(totalTarjetas[1].src);
+totalTarjetas[0].setAttribute("codigo", "0");
+totalTarjetas[1].setAttribute("codigo", "1");
+totalTarjetas[2].setAttribute("codigo", "2");
+totalTarjetas[3].setAttribute("codigo", "3");
+totalTarjetas[4].setAttribute("codigo", "4");
+totalTarjetas[5].setAttribute("codigo", "5");
+totalTarjetas[6].setAttribute("codigo", "6");
+totalTarjetas[7].setAttribute("codigo", "7");
+totalTarjetas[0].setAttribute("codigo", "0");
+totalTarjetas[1].setAttribute("codigo", "1");
+totalTarjetas[2].setAttribute("codigo", "2");
+totalTarjetas[3].setAttribute("codigo", "3");
+totalTarjetas[4].setAttribute("codigo", "4");
+totalTarjetas[5].setAttribute("codigo", "5");
+totalTarjetas[6].setAttribute("codigo", "6");
+totalTarjetas[7].setAttribute("codigo", "7");
 
 function barajaTarjetas(){
     var resultado;
@@ -36,96 +51,27 @@ function barajaTarjetas(){
     return resultado;
 }
 
-function reparteTarjetas(){
+function reparteTarjetas() {
     var mesa = document.querySelector("#mesa");
     var tarjetasBarajadas = barajaTarjetas();
     mesa.innerHTML = "";
-
-    tarjetasBarajadas.forEach(function(elemento, indice){
-        var tarjeta = document.createElement("div");
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/foto1.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "0" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/foto2.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "1" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/foto3.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "2" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/foto4.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "3" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/foto5.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "4" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/foto6.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "5" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/vivi.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "6" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/memoria/ivantm6.github.io/images/Foto.png"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "7" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-        mesa.appendChild(tarjeta);
+  
+    tarjetasBarajadas.forEach(function(elemento, indice) {
+      var tarjeta = document.createElement("div");
+  
+      tarjeta.innerHTML =
+        "<div class='tarjeta' data-valor= " + 
+        totalTarjetas[indice].getAttribute('codigo') +
+        ">" +
+        "<div class='tarjeta__contenido'>" + 
+        "<img src=" + totalTarjetas[indice].src + ">" +
+        "<div class = 'soluciones'>" + "0" + "</div>" +
+        "</div>" +
+        "</div>";
+  
+      mesa.appendChild(tarjeta);
     });
-}
+  }
 
 function descubrir(){
     var descubiertas;
@@ -145,7 +91,7 @@ function descubrir(){
 }
 
 function comparar(tarjetasAComparar){
-    if(tarjetasAComparar[0].textContent === tarjetasAComparar[1].textContent){
+    if(tarjetasAComparar[0].dataset.valor === tarjetasAComparar[1].dataset.valor){
         acierto(tarjetasAComparar);
     }else {
         error(tarjetasAComparar);
