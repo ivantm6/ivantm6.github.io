@@ -4,7 +4,7 @@ grupoTarjetas[0] = new Image();
 grupoTarjetas[0].src = './images/vivi.jpg';
 
 grupoTarjetas[1] = new Image();
-grupoTarjetas[1].src = 'images/Foto.png';
+grupoTarjetas[1].src = '.images/Foto.png';
 
 grupoTarjetas[2] = new Image();
 grupoTarjetas[2].src = './images/foto1.jpg';
