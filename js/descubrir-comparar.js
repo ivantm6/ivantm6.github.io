@@ -1,5 +1,6 @@
 function descubrir(){
     var descubiertas;
+    var tarjetasPendientes;
     var totalDescubiertas = document.querySelectorAll(".descubierta:not(.acertada)");
     
     if(totalDescubiertas.length > 1){
@@ -13,10 +14,15 @@ function descubrir(){
         return;
     }   
     comparar(descubiertas);
+    actualizaContador();
+    tarjetasPendientes = document.querySelectorAll(".tarjeta:not(.acertada)");
+    if(tarjetasPendientes.length === 0){
+        setTimeout(finalizar, 1500);
+    }
 }
 
 function comparar(tarjetasAComparar){
-    if(tarjetasAComparar[0].textContent === tarjetasAComparar[1].textContent){
+    if(tarjetasAComparar[0].dataset.valor === tarjetasAComparar[1].dataset.valor){
         acierto(tarjetasAComparar);
     }else {
         error(tarjetasAComparar);

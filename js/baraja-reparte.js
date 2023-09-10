@@ -6,93 +6,24 @@ function barajaTarjetas(){
     return resultado;
 }
 
-function reparteTarjetas(){
+function reparteTarjetas() {
     var mesa = document.querySelector("#mesa");
     var tarjetasBarajadas = barajaTarjetas();
     mesa.innerHTML = "";
-
-    tarjetasBarajadas.forEach(function(elemento, indice){
-        var tarjeta = document.createElement("div");
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/putaaaaa/images/foto1.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "0" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/putaaaaa/images/foto2.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "1" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/putaaaaa/images/foto3.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "2" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/putaaaaa/images/foto4.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "3" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/putaaaaa/images/foto5.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "4" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/putaaaaa/images/foto6.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "5" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/putaaaaa/images/vivi.jpg"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "6" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-
-        if(totalTarjetas[indice].src === "file:///C:/Users/ivant/Desktop/putaaaaa/images/Foto.png"){
-            tarjeta.innerHTML =
-                "<div class='tarjeta'>" +
-                "<div class='tarjeta__contenido'>" + 
-                "<img src=" + totalTarjetas[indice].src + ">" +
-                "<div class = 'soluciones'>" + "7" + "</div>" +
-                "</div>" +
-                "</div>";
-        }
-        mesa.appendChild(tarjeta);
+  
+    tarjetasBarajadas.forEach(function(elemento, indice) {
+      var tarjeta = document.createElement("div");
+  
+      tarjeta.innerHTML =
+        "<div class='tarjeta' data-valor= " + 
+        totalTarjetas[indice].getAttribute('codigo') +
+        ">" +
+        "<div class='tarjeta__contenido'>" + 
+        "<img src=" + totalTarjetas[indice].src + ">" +
+        "<div class = 'soluciones'>" + "0" + "</div>" +
+        "</div>" +
+        "</div>";
+  
+      mesa.appendChild(tarjeta);
     });
-}
+  }

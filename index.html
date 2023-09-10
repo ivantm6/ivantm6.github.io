@@ -15,19 +15,42 @@
     </head>
 
     <body>
+        <header class="cabecera">
+            <div class="contadores">
+                <div class="contador-item">
+                    <h4 class="cabecera-titulo">Movimientos</h4>
+                    <div class="cabecera-num">
+                        <span id="mov">00</span>/<span id="mov-total">20</span>
+                    </div>
+                </div>
+
+                <div class="contador-item">
+                    <h4 class="cabecera-titulo">Tiempo</h4>
+                    <div class="cabecera-num">
+                        <span id="minutos">00</span>:<span id="segundos">00</span>
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <main>
-            <div class="mesa" id="mesa">
-                <div class="tarjeta">
-                    <div class="tarjeta__contenido">
-                        <img src="">
-                        <div class="soluciones"></div>
-                    </div>
+            <div class="mesa" id="mesa"></div>
+            <div id="feedback" class="feedback">
+                <div class="modal">
+                    <h2>Eres un lince, nenah</h2>
+                    <button class="reiniciar" id="reiniciar">¿Reiniciar?</button>
                 </div>
             </div>
         </main>
 
-        <script src="js/script.js"></script>
+        <script src="js/variables-globales.js"></script>
+        <script src="js/baraja-reparte.js"></script>
+        <script src="js/descubrir-comparar.js"></script>
+        <script src="js/acierto-error.js"></script>
+        <script src="js/cronometro.js"></script>
+        <script src="js/contador.js"></script>
+        <script src="js/finalizar.js"></script>
+        <script src="js/iniciar.js"></script>
 
     </body>
 
